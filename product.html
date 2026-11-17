@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ product.title }} - Weverse Shop Clone</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Header Principal -->
+    <header class="main-header">
+      <div class="header-left">
+        <a href="{{ url_for('home') }}" class="logo" style="text-decoration:none; color:inherit;">weverse shop</a>
+        <span class="divider">|</span>
+        <span class="group-name">BTS ▾</span>
+        <span class="lang-selector">EN ▾</span>
+        <span class="currency-selector">USD $ ▾</span>
+      </div>
+      <div class="header-right">
+        <span>📍 CO</span>
+        <span>Cart</span>
+        <span>MY ▾</span>
+        <span>Log In ▾</span>
+        <span>Help</span>
+      </div>
+    </header>
+
+    <!-- Contenido de la Vista de Detalle -->
+    <main class="product-detail-container">
+      
+      <!-- Sección Superior: Imagen y Botones de Compra -->
+      <section class="product-top-section">
+        
+        <!-- Columna Izquierda: Imagen Grande -->
+        <div class="product-gallery">
+          <div class="main-preview-box">
+            <img src="{{ url_for('static', filename=product.image) }}" alt="{{ product.title }}">
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Panel de Compra (Siempre Disponible) -->
+        <div class="product-purchase-panel">
+          <p class="breadcrumb">BTS > </p>
+          <h1 class="detail-title">{{ product.title }}</h1>
+          
+          <div class="price-box">
+            {% if product.discount %}
+              <span class="discount-rate">{{ product.discount }}</span>
+            {% endif %}
+            <span class="current-price">USD ${{ product.price }}</span>
+            {% if product.original_price %}
+              <span class="original-price">USD ${{ product.original_price }}</span>
+            {% endif %}
+          </div>
+          
+          <p class="tax-info">Excl. tax ⓘ</p>
+          <p class="cashback-info">Up to USD $0.25 Weverse Shop Cash</p>
+
+          <div class="quantity-selector-box">
+            <span>{{ product.title }}</span>
+            <div class="qty-controls">
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
+            <span class="qty-price">USD ${{ product.price }}</span>
+          </div>
+
+          <div class="subtotal-row">
+            <span><strong>1 selected</strong></span>
+            <div>
+              <span class="subtotal-price">USD ${{ product.price }}</span>
+              <span class="subtotal-tax">Excl. tax</span>
+            </div>
+          </div>
+
+          <!-- Botones de Compra activos -->
+          <div class="action-buttons">
+            <button class="btn-cart">Add to Cart</button>
+            <button class="btn-purchase">Purchase</button>
+          </div>
+
+          <p class="login-warning">🔒 Please log in to check shipping availability.</p>
+        </div>
+      </section>
+
+      <!-- Pestañas de Navegación -->
+      <div class="product-tabs">
+        <button class="tab-btn active">Details</button>
+        <button class="tab-btn">Notes</button>
+      </div>
+
+      <!-- Sección de Detalles: Imagen Larga Vertical y Tabla Técnica -->
+      <section class="product-long-details">
+        
+        <!-- Imagen vertical larga con la info gráfica -->
+        <div class="long-image-box">
+          <img src="{{ url_for('static', filename=product.detail_image) }}" alt="Product Details Infographic">
+        </div>
+
+        <!-- Tabla de Información -->
+        <div class="specs-section">
+          <h2>Information</h2>
+          <table class="specs-table">
+            <tr><td>Product Name</td><td>{{ product.title }}</td></tr>
+            {% if product.label %}
+              <tr><td>Label</td><td>{{ product.label }}</td></tr>
+            {% endif %}
+            {% if product.size %}
+              <tr><td>Size (mm)</td><td>{{ product.size }}</td></tr>
+            {% endif %}
+            {% if product.material %}
+              <tr><td>Material</td><td>{{ product.material }}</td></tr>
+            {% endif %}
+            {% if product.component %}
+              <tr><td>Product Component</td><td>{{ product.component }}</td></tr>
+            {% endif %}
+            {% if product.release_date %}
+              <tr><td>Release date</td><td>{{ product.release_date }}</td></tr>
+            {% endif %}
+            <tr><td>Manufacturer</td><td>{{ product.manufacturer or 'YG PLUS' }}</td></tr>
+            <tr><td>Country of manufacture</td><td>{{ product.country or 'KOREA' }}</td></tr>
+            <tr><td>Quality assurance standards</td><td>In accordance with relevant laws and consumer disputes criteria</td></tr>
+            <tr><td>Company Name/CEO</td><td>Weverse Company Inc. / YANG ZOOIL</td></tr>
+            <tr><td>Email</td><td>support@weverse.io</td></tr>
+          </table>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer Idéntico -->
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="#">Terms and Conditions</a>
+        <a href="#">Paid Services Terms and Conditions</a>
+        <a href="#">Child and Youth Protection Policy</a>
+        <a href="#" class="footer-bold">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Cookie Settings</a>
+      </div>
+    </footer>
+
+</body>
+</html>

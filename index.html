@@ -28,9 +28,6 @@
           <button class="dropbtn bold-btn">BTS <span class="arrow">▼</span></button>
           <div class="dropdown-content">
             <a href="#">BTS</a>
-            <a href="#">TOMORROW X TOGETHER</a>
-            <a href="#">SEVENTEEN</a>
-            <a href="#">ENHYPEN</a>
           </div>
         </div>
 
@@ -186,12 +183,13 @@
         
         <!-- Botones de Categoría -->
         <div class="category-pills">
-          <button class="pill-btn active" onclick="filtrarProductos('all', this)">NEW</button>
+          <button class="pill-btn active" onclick="filtrarProductos('all', this)">ALL</button>
           <button class="pill-btn" onclick="filtrarProductos('album', this)">Album</button>
           <button class="pill-btn" onclick="filtrarProductos('merch', this)">Merch</button>
           <button class="pill-btn" onclick="filtrarProductos('dvd', this)">DVD/Media</button>
-          <button class="pill-btn" onclick="filtrarProductos('bt21', this)">BT21</button>
+          <button class="pill-btn" onclick="filtrarProductos('BT21', this)">BT21</button>
           <button class="pill-btn" onclick="filtrarProductos('tour', this)">Tour Merch</button>
+          <button class="pill-btn" onclick="filtrarProductos('solo', this)">Solo</button>
         </div>
       </div>
 
@@ -201,11 +199,8 @@
         <!-- Producto 1 -->
         <div class="product-card" data-category="merch">
           <div class="product-img-box">
-            <img src="{{ url_for('static', filename='img/prod1.jpg') }}" alt="Figura">
-            <div class="upcoming-bar">
-              <span>🕒 Upcoming</span>
-              <span>1 day left</span>
-            </div>
+            <img src="{{ url_for('static', filename='img/In the seom (portada).JPG') }}" alt="Figura">
+                          
           </div>
           <div class="product-info">
             <h3 class="product-title">BTS Island Figure V4</h3>
@@ -222,11 +217,11 @@
         <!-- Producto 2 -->
         <div class="product-card" data-category="album">
           <div class="product-img-box">
-            <img src="{{ url_for('static', filename='img/prod2.jpg') }}" alt="Arirang">
+            <img src="{{ url_for('static', filename='img/arirangportada.JPG') }}" alt="Arirang">
           </div>
           <div class="product-info">
-            <h3 class="product-title">BTS WORLD TOUR 'ARIRANG' IN LONDON</h3>
-            <p class="product-price"><span class="currency">USD</span> $60.81</p>
+            <h3 class="product-title">'ARIRANG' (Set)</h3>
+            <p class="product-price"><span class="currency">USD</span> $31.34</p>
             <p class="product-tax">Excl. tax</p>
             <div class="product-badges">
               <span class="badge badge-preorder">PRE-ORDER</span>
@@ -239,15 +234,14 @@
         <!-- Producto 3 -->
         <div class="product-card" data-category="album">
           <div class="product-img-box">
-            <img src="{{ url_for('static', filename='img/prod3.jpg') }}" alt="Arirang Member">
+            <img src="{{ url_for('static', filename='img/proofportada.jpg') }}" alt="Proof">
           </div>
           <div class="product-info">
-            <h3 class="product-title">BTS WORLD TOUR 'ARIRANG' IN LONDON (MEMBER VER.)</h3>
-            <p class="product-price"><span class="currency">USD</span> $25.04</p>
+            <h3 class="product-title">Proof (Collector's Edition)</h3>
+            <p class="product-price"><span class="currency">USD</span> $212.48</p>
             <p class="product-tax">Excl. tax</p>
             <div class="product-badges">
               <span class="badge badge-preorder">PRE-ORDER</span>
-              <span class="badge badge-gift">GIFT</span>
               <span class="badge badge-shipped">✈️ Shipped from KR</span>
             </div>
           </div>
@@ -256,11 +250,11 @@
         <!-- Producto 4 -->
         <div class="product-card" data-category="dvd">
           <div class="product-img-box">
-            <img src="{{ url_for('static', filename='img/prod4.jpg') }}" alt="DVD">
+            <img src="{{ url_for('static', filename='img/korean.jpg') }}" alt="DVD">
           </div>
           <div class="product-info">
-            <h3 class="product-title">[DVD] BTS MAP OF THE SOUL ON:E</h3>
-            <p class="product-price"><span class="currency">USD</span> $54.00</p>
+            <h3 class="product-title">Learn Korean with BTS</h3>
+            <p class="product-price"><span class="currency">USD</span> $77.12</p>
             <p class="product-tax">Excl. tax</p>
             <div class="product-badges">
               <span class="badge badge-exclusive">EXCLUSIVE</span>
@@ -270,12 +264,12 @@
         </div>
 
         <!-- Producto 5 -->
-        <div class="product-card" data-category="bt21">
+        <div class="product-card" data-category="BT21">
           <div class="product-img-box">
-            <img src="{{ url_for('static', filename='img/prod5.jpg') }}" alt="BT21">
+            <img src="{{ url_for('static', filename='img/honeybee.jpg') }}" alt="BT21">
           </div>
           <div class="product-info">
-            <h3 class="product-title">BT21 minini Standing Doll (CHIMMY)</h3>
+            <h3 class="product-title">Medium Plush Honney bee</h3>
             <p class="product-price"><span class="currency">USD</span> $22.50</p>
             <p class="product-tax">Excl. tax</p>
             <div class="product-badges">
@@ -287,7 +281,7 @@
         <!-- Producto 6 -->
         <div class="product-card" data-category="tour">
           <div class="product-img-box">
-            <img src="{{ url_for('static', filename='img/prod6.jpg') }}" alt="Lightstick">
+            <img src="{{ url_for('static', filename='img/mots.JPG') }}" alt="Lightstick">
           </div>
           <div class="product-info">
             <h3 class="product-title">BTS Official Light Stick Map of the Soul Special Edition</h3>
@@ -303,11 +297,11 @@
         <!-- Producto 7 -->
         <div class="product-card" data-category="album">
           <div class="product-img-box">
-            <img src="{{ url_for('static', filename='img/prod7.jpg') }}" alt="Proof">
+            <img src="{{ url_for('static', filename='img/tear.JPG') }}" alt="Love Yourself Tear">
           </div>
           <div class="product-info">
-            <h3 class="product-title">BTS Anthology Album 'Proof' (Standard Edition)</h3>
-            <p class="product-price"><span class="currency">USD</span> $58.20</p>
+            <h3 class="product-title">LOVE YOURSELF 轉 'Tear'</h3>
+            <p class="product-price"><span class="currency">USD</span> $11.65</p>
             <p class="product-tax">Excl. tax</p>
             <div class="product-badges">
               <span class="badge badge-gift">GIFT</span>
@@ -319,7 +313,7 @@
         <!-- Producto 8 -->
         <div class="product-card" data-category="merch">
           <div class="product-img-box">
-            <img src="{{ url_for('static', filename='img/prod8.jpg') }}" alt="Hoodie">
+            <img src="{{ url_for('static', filename='img/hoodie.JPG') }}" alt="Hoodie">
           </div>
           <div class="product-info">
             <h3 class="product-title">[GOLDEN] Zip-Up Hoodie (Black)</h3>
@@ -332,8 +326,183 @@
           </div>
         </div>
 
-      </div>
-    </section>
+        <!-- Producto 9 -->
+        <div class="product-card" data-category="album">
+          <div class="product-img-box">
+            <img src="{{ url_for('static', filename='img/darkywild.JPG') }}" alt="Dark & Wild">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">BTS 1st album "Dark & Wild"</h3>
+            <p class="product-price"><span class="currency">USD</span> $10.65</p>
+            <p class="product-tax">Excl. tax</p>
+            <div class="product-badges">
+              <span class="badge badge-exclusive">EXCLUSIVE</span>
+              <span class="badge badge-preorder">OG</span>
+              <span class="badge badge-shipped">✈️ Shipped from KR</span>
+            </div>
+          </div>
+        </div>
+
+      <!-- Producto 10 -->
+        <div class="product-card" data-category="merch">
+          <div class="product-img-box">
+            <img src="{{ url_for('static', filename='img/jacket.JPG') }}" alt="Wind Jacket">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Wind Jacket (DIVE)</h3>
+            <p class="product-price"><span class="currency">USD</span> $92.29</p>
+            <p class="product-tax">Excl. tax</p>
+            <div class="product-badges">
+              <span class="badge badge-shipped">✈️ Shipped from KR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Producto 11 -->
+        <div class="product-card" data-category="tour">
+          <div class="product-img-box">
+            <img src="{{ url_for('static', filename='img/lightstick.JPG') }}" alt="Lightstick">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">BTS OFFICIAL LIGHT STICK VER.4</h3>
+            <p class="product-price"><span class="currency">USD</span> $35.05</p>
+            <p class="product-tax">Excl. tax</p>
+            <div class="product-badges">
+              <span class="badge badge-exclusive">EXTRA PIC</span>
+              <span class="badge badge-shipped">✈️ Shipped from KR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Producto 12 -->
+        <div class="product-card" data-category="dvd">
+          <div class="product-img-box">
+            <img src="{{ url_for('static', filename='img/vogue.JPG') }}" alt="MEDIA">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">VOGUE KOREA (2026.12 / A type)</h3>
+            <p class="product-price"><span class="currency">USD</span> $20.00</p>
+            <p class="product-tax">Excl. tax</p>
+            <div class="product-badges">
+              <span class="badge badge-exclusive">EXCLUSIVE</span>
+              <span class="badge badge-shipped">✈️ Shipped from KR</span>
+            </div>
+          </div>
+        </div>
+
+         <!-- Producto 13 -->
+        <div class="product-card" data-category="dvd">
+          <div class="product-img-box">
+            <img src="{{ url_for('static', filename='img/london.JPG') }}" alt="DVD">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title"> BTS WORLD TOUR 'ARIRANG' IN LONDON</h3>
+            <p class="product-price"><span class="currency">USD</span> $60.81</p>
+            <p class="product-tax">Excl. tax</p>
+            <div class="product-badges">
+              <span class="badge badge-exclusive">GIFT</span>
+              <span class="badge badge-exclusive">PREORDER</span>
+              <span class="badge badge-shipped">✈️ Shipped from KR</span>
+            </div>
+          </div>
+        </div>
+
+         <!-- Producto 14 -->
+        <div class="product-card" data-category="BT21">
+          <div class="product-img-box">
+            <img src="{{ url_for('static', filename='img/snowman.JPG') }}" alt="BT21">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Snowman Plush</h3>
+            <p class="product-price"><span class="currency">USD</span> $22.89</p>
+            <p class="product-tax">Excl. tax</p>
+            <div class="product-badges">
+              <span class="badge badge-shipped">✈️ Shipped from KR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Producto 15 -->
+        <div class="product-card" data-category="Solo">
+          <div class="product-img-box">
+            <img src="{{ url_for('static', filename='img/goldenalbum.JPG') }}" alt="Golden">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Jung Kook 'GOLDEN' (Set)</h3>
+            <p class="product-price"><span class="currency">USD</span> $51.08</p>
+            <p class="product-tax">Excl. tax</p>
+            <div class="product-badges">
+              <span class="badge badge-shipped">PHOTOCARD</span>
+              <span class="badge badge-shipped">✈️ Shipped from KR</span>
+            </div>
+          </div>
+        </div>
+
+        
+        <!-- Producto 16 -->
+        <div class="product-card" data-category="BT21">
+          <div class="product-img-box">
+            <img src="{{ url_for('static', filename='img/bag.JPG') }}" alt="BT21">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Travel Folding Bag Seoul Edition</h3>
+            <p class="product-price"><span class="currency">USD</span> $25.04</p>
+            <p class="product-tax">Excl. tax</p>
+            <div class="product-badges">
+              <span class="badge badge-shipped">✈️ Shipped from KR</span>
+            </div>
+          </div>
+        </div>
+
+        
+        <!-- Producto 17 -->
+        <div class="product-card" data-category="Solo" onclick="window.location.href='/d-day';" style="cursor: pointer;">
+          <div class="product-img-box">
+            <img src="{{ url_for('static', filename='img/dday.JPG') }}" alt="Agust D D-DAY Set">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Agust D 'D-DAY' (Set)</h3>
+            <p class="product-price"><span class="currency">USD</span> $26.46</p>
+            <p class="product-tax">Excl. tax</p>
+            <div class="product-badges">
+              <span class="badge badge-shipped">✈️ Shipped from KR</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Producto 18 -->
+        <div class="product-card" data-category="Solo">
+          <div class="product-img-box">
+            <img src="{{ url_for('static', filename='img/rpwp.JPG') }}" alt="Solo">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">RM 'Right Place, Wrong Person' (Set)</h3>
+            <p class="product-price"><span class="currency">USD</span> $51.08</p>
+            <p class="product-tax">Excl. tax</p>
+            <div class="product-badges">
+              <span class="badge badge-shipped">✈️ Shipped from KR</span>
+            </div>
+          </div>
+        </div>
+
+        
+        <!-- Producto 19 -->
+        <div class="product-card" data-category="Solo">
+          <div class="product-img-box">
+            <img src="{{ url_for('static', filename='img/jackinthebox.JPG') }}" alt="Solo">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">J-Hope 'Jack in the Box' (HOPE Edition)</h3>
+            <p class="product-price"><span class="currency">USD</span> $37.20</p>
+            <p class="product-tax">Excl. tax</p>
+            <div class="product-badges">
+              <span class="badge badge-shipped">LIMITED EDITION</span>
+              <span class="badge badge-shipped">✈️ Shipped from KR</span>
+            </div>
+          </div>
+        </div>
+
+         </section>
 
   </main>
 
@@ -379,5 +548,19 @@
     }
   </script>
 
+  <!-- PIE DE PÁGINA (FOOTER) -->
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="#">Terms and Conditions</a>
+        <a href="#">Paid Services Terms and Conditions</a>
+        <a href="#">Child and Youth Protection Policy</a>
+        <a href="#" class="footer-bold">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Cookie Settings</a>
+      </div>
+    </footer>
+
 </body>
+
+   
 </html>
