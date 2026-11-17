@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Weverse Shop - BTS</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- ========================================== -->
+  <!-- 1. ENCABEZADO (HEADER) -->
+  <!-- ========================================== -->
+  <header class="navbar">
+    <div class="nav-container">
+      
+      <!-- Lado Izquierdo: Logo y Selectores -->
+      <div class="nav-left">
+        <a href="/" class="logo">
+          <span class="logo-weverse">weverse</span> <span class="logo-shop">shop</span>
+        </a>
+        
+        <span class="divider">|</span>
+
+        <!-- Selector Artista -->
+        <div class="dropdown">
+          <button class="dropbtn bold-btn">BTS <span class="arrow">▼</span></button>
+          <div class="dropdown-content">
+            <a href="#">BTS</a>
+            <a href="#">TOMORROW X TOGETHER</a>
+            <a href="#">SEVENTEEN</a>
+            <a href="#">ENHYPEN</a>
+          </div>
+        </div>
+
+        <!-- Selector Idioma -->
+        <div class="dropdown">
+          <button class="dropbtn">EN <span class="arrow">▼</span></button>
+          <div class="dropdown-content">
+            <a href="#">English (EN)</a>
+            <a href="#">Español (ES)</a>
+          </div>
+        </div>
+
+        <!-- Selector Moneda -->
+        <div class="dropdown">
+          <button class="dropbtn">USD $ <span class="arrow">▼</span></button>
+          <div class="dropdown-content">
+            <a href="#">USD $</a>
+            <a href="#">COP $</a>
+            <a href="#">EUR €</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lado Derecho: Locación, Carrito, Cuenta y Ayuda -->
+      <div class="nav-right">
+        
+        <!-- Selector Locación -->
+        <div class="dropdown">
+          <button class="dropbtn location-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            CO
+          </button>
+          <div class="dropdown-content right-align">
+            <a href="#">Colombia (CO)</a>
+            <a href="#">México (MX)</a>
+            <a href="#">United States (US)</a>
+            <a href="#">United Kingdom (UK)</a>
+          </div>
+        </div>
+
+        <span class="divider">|</span>
+        <a href="#" class="nav-link">Cart</a>
+        <span class="divider">|</span>
+
+        <!-- Menú MY -->
+        <div class="dropdown">
+          <button class="dropbtn">MY <span class="arrow">▼</span></button>
+          <div class="dropdown-content right-align">
+            <a href="#">Orders</a>
+            <a href="#">My Profile</a>
+          </div>
+        </div>
+
+        <span class="divider">|</span>
+
+        <!-- Menú Log In -->
+        <div class="dropdown">
+          <button class="dropbtn">Log In <span class="arrow">▼</span></button>
+          <div class="dropdown-content right-align">
+            <a href="/login">Log In</a>
+            <a href="/registro">Create Account</a>
+          </div>
+        </div>
+
+        <span class="divider">|</span>
+        <a href="#" class="nav-link">Help</a>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ========================================== -->
+  <!-- 2. CONTENIDO PRINCIPAL -->
+  <!-- ========================================== -->
+  <main class="main-content">
+
+    <!-- SECCIÓN DE BANNERS (CARRUSEL) -->
+    <section class="banner-section">
+      <div class="banner-wrapper">
+        
+        <!-- Flecha Izquierda -->
+        <button class="slider-btn prev-btn" onclick="moverCarrusel(-1)" aria-label="Anterior">&#8249;</button>
+
+        <!-- Ventana visible del carrusel -->
+        <div class="banner-viewport">
+          <div class="banner-track" id="bannerTrack">
+            
+            <!-- PÁGINA 1 (Banners 1 y 2) -->
+            <div class="banner-page">
+              <div class="banner-card">
+                <img src="{{ url_for('static', filename='img/jimin.jpg') }}" alt="Jimin" class="banner-img">
+                <div class="banner-gradient"></div>
+                <div class="banner-text">
+                  <h2>[Jimin's Production Diary]</h2>
+                  <p>Watch the documentary for details!</p>
+                </div>
+              </div>
+
+              <div class="banner-card">
+                <img src="{{ url_for('static', filename='img/bts.jpg') }}" alt="BTS" class="banner-img">
+                <div class="banner-gradient"></div>
+                <div class="banner-text">
+                  <h2>[CONCERT VOD] MAP OF THE<br>SOUL ON:E</h2>
+                  <p>Purchase the concert VOD now!</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- PÁGINA 2 (Banners 3 y 4) -->
+            <div class="banner-page">
+              <div class="banner-card">
+                <img src="{{ url_for('static', filename='img/disco.jpg') }}" alt="Disco" class="banner-img">
+                <div class="banner-gradient"></div>
+                <div class="banner-text">
+                  <h2>[BTS Merch Box #15]</h2>
+                  <p>Available now for ARMY Membership!</p>
+                </div>
+              </div>
+
+              <div class="banner-card">
+                <img src="{{ url_for('static', filename='img/golden jk.jpg') }}" alt="Jungkook" class="banner-img">
+                <div class="banner-gradient"></div>
+                <div class="banner-text">
+                  <h2>[JUNG KOOK 'GOLDEN']</h2>
+                  <p>Check out the official album merchandise!</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Flecha Derecha -->
+        <button class="slider-btn next-btn" onclick="moverCarrusel(1)" aria-label="Siguiente">&#8250;</button>
+      </div>
+
+      <!-- Barra indicadora inferior -->
+      <div class="slider-indicator">
+        <span class="bar active" id="bar0"></span>
+        <span class="bar" id="bar1"></span>
+      </div>
+    </section>
+
+
+    <!-- SECCIÓN DE PRODUCTOS (ANCHO COMPLETO Y FILTRABLE) -->
+    <section class="products-section">
+      <div class="products-header">
+        <h2 class="section-title">Products</h2>
+        
+        <!-- Botones de Categoría -->
+        <div class="category-pills">
+          <button class="pill-btn active" onclick="filtrarProductos('all', this)">NEW</button>
+          <button class="pill-btn" onclick="filtrarProductos('album', this)">Album</button>
+          <button class="pill-btn" onclick="filtrarProductos('merch', this)">Merch</button>
+          <button class="pill-btn" onclick="filtrarProductos('dvd', this)">DVD/Media</button>
+          <button class="pill-btn" onclick="filtrarProductos('bt21', this)">BT21</button>
+          <button class="pill-btn" onclick="filtrarProductos('tour', this)">Tour Merch</button>
+        </div>
+      </div>
+
+      <!-- Cuadrícula de Productos -->
+      <div class="products-grid">
+
+        <!-- Producto 1 -->
+        <div class="product-card" data-category="merch">
+          <div class="product-img-box">
+            <img src="{{ url_for('static', filename='img/prod1.jpg') }}" alt="Figura">
+            <div class="upcoming-bar">
+              <span>🕒 Upcoming</span>
+              <span>1 day left</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">BTS Island Figure V4</h3>
+            <p class="product-price"><span class="currency">USD</span> $85.14</p>
+            <p class="product-tax">Excl. tax</p>
+            <div class="product-badges">
+              <span class="badge badge-exclusive">EXCLUSIVE</span>
+              <span class="badge badge-preorder">PRE-ORDER</span>
+              <span class="badge badge-shipped">✈️ Shipped from KR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="product-card" data-category="album">
+          <div class="product-img-box">
+            <img src="{{ url_for('static', filename='img/prod2.jpg') }}" alt="Arirang">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">BTS WORLD TOUR 'ARIRANG' IN LONDON</h3>
+            <p class="product-price"><span class="currency">USD</span> $60.81</p>
+            <p class="product-tax">Excl. tax</p>
+            <div class="product-badges">
+              <span class="badge badge-preorder">PRE-ORDER</span>
+              <span class="badge badge-gift">GIFT</span>
+              <span class="badge badge-shipped">✈️ Shipped from KR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="product-card" data-category="album">
+          <div class="product-img-box">
+            <img src="{{ url_for('static', filename='img/prod3.jpg') }}" alt="Arirang Member">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">BTS WORLD TOUR 'ARIRANG' IN LONDON (MEMBER VER.)</h3>
+            <p class="product-price"><span class="currency">USD</span> $25.04</p>
+            <p class="product-tax">Excl. tax</p>
+            <div class="product-badges">
+              <span class="badge badge-preorder">PRE-ORDER</span>
+              <span class="badge badge-gift">GIFT</span>
+              <span class="badge badge-shipped">✈️ Shipped from KR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Producto 4 -->
+        <div class="product-card" data-category="dvd">
+          <div class="product-img-box">
+            <img src="{{ url_for('static', filename='img/prod4.jpg') }}" alt="DVD">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">[DVD] BTS MAP OF THE SOUL ON:E</h3>
+            <p class="product-price"><span class="currency">USD</span> $54.00</p>
+            <p class="product-tax">Excl. tax</p>
+            <div class="product-badges">
+              <span class="badge badge-exclusive">EXCLUSIVE</span>
+              <span class="badge badge-shipped">✈️ Shipped from KR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Producto 5 -->
+        <div class="product-card" data-category="bt21">
+          <div class="product-img-box">
+            <img src="{{ url_for('static', filename='img/prod5.jpg') }}" alt="BT21">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">BT21 minini Standing Doll (CHIMMY)</h3>
+            <p class="product-price"><span class="currency">USD</span> $22.50</p>
+            <p class="product-tax">Excl. tax</p>
+            <div class="product-badges">
+              <span class="badge badge-shipped">✈️ Shipped from KR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Producto 6 -->
+        <div class="product-card" data-category="tour">
+          <div class="product-img-box">
+            <img src="{{ url_for('static', filename='img/prod6.jpg') }}" alt="Lightstick">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">BTS Official Light Stick Map of the Soul Special Edition</h3>
+            <p class="product-price"><span class="currency">USD</span> $48.90</p>
+            <p class="product-tax">Excl. tax</p>
+            <div class="product-badges">
+              <span class="badge badge-exclusive">EXCLUSIVE</span>
+              <span class="badge badge-shipped">✈️ Shipped from KR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Producto 7 -->
+        <div class="product-card" data-category="album">
+          <div class="product-img-box">
+            <img src="{{ url_for('static', filename='img/prod7.jpg') }}" alt="Proof">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">BTS Anthology Album 'Proof' (Standard Edition)</h3>
+            <p class="product-price"><span class="currency">USD</span> $58.20</p>
+            <p class="product-tax">Excl. tax</p>
+            <div class="product-badges">
+              <span class="badge badge-gift">GIFT</span>
+              <span class="badge badge-shipped">✈️ Shipped from KR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Producto 8 -->
+        <div class="product-card" data-category="merch">
+          <div class="product-img-box">
+            <img src="{{ url_for('static', filename='img/prod8.jpg') }}" alt="Hoodie">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">[GOLDEN] Zip-Up Hoodie (Black)</h3>
+            <p class="product-price"><span class="currency">USD</span> $89.00</p>
+            <p class="product-tax">Excl. tax</p>
+            <div class="product-badges">
+              <span class="badge badge-preorder">PRE-ORDER</span>
+              <span class="badge badge-shipped">✈️ Shipped from KR</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ========================================== -->
+  <!-- JAVASCRIPT (CARRUSEL + FILTRO DE PRODUCTOS) -->
+  <!-- ========================================== -->
+  <script>
+    // 1. Control del Carrusel de Banners
+    let paginaActual = 0;
+    const totalPaginas = 2;
+
+    function moverCarrusel(direccion) {
+      paginaActual = paginaActual + direccion;
+
+      if (paginaActual >= totalPaginas) {
+        paginaActual = 0;
+      } else if (paginaActual < 0) {
+        paginaActual = totalPaginas - 1;
+      }
+
+      const track = document.getElementById('bannerTrack');
+      track.style.transform = `translateX(-${paginaActual * 100}%)`;
+
+      document.getElementById('bar0').classList.toggle('active', paginaActual === 0);
+      document.getElementById('bar1').classList.toggle('active', paginaActual === 1);
+    }
+
+    // 2. Control de los Filtros de Productos por Categoría
+    function filtrarProductos(categoria, botonActivo) {
+      const botones = document.querySelectorAll('.pill-btn');
+      botones.forEach(btn => btn.classList.remove('active'));
+      botonActivo.classList.add('active');
+
+      const productos = document.querySelectorAll('.product-card');
+      productos.forEach(producto => {
+        if (categoria === 'all' || producto.getAttribute('data-category') === categoria) {
+          producto.style.display = 'flex';
+        } else {
+          producto.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
