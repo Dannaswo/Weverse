@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>In the seom - Weverse Shop</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='proof.css') }}">
+    
+</head>
+<body>
+
+    <!-- Header Principal (Idéntico al de la página principal con todos sus desplegables) -->
+    <header class="navbar">
+      <div class="nav-container">
+        
+        <!-- Lado Izquierdo: Logo y Selectores -->
+        <div class="nav-left">
+          <a href="/" class="logo">
+            <span class="logo-weverse">weverse</span><span class="logo-shop">shop</span>
+          </a>
+          <span class="divider">|</span>
+          
+          <!-- Selector Artista -->
+          <div class="dropdown">
+            <button class="dropbtn bold-btn">BTS <span class="arrow">▾</span></button>
+            <div class="dropdown-content">
+              <a href="#">BTS</a>
+            </div>
+          </div>
+          
+          <!-- Selector Idioma -->
+          <div class="dropdown">
+            <button class="dropbtn">EN <span class="arrow">▾</span></button>
+            <div class="dropdown-content">
+              <a href="#">English (EN)</a>
+              <a href="#">Español (ES)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lado Derecho: Locación, Carrito, Cuenta y Ayuda -->
+        <div class="nav-right">
+          
+          <!-- Selector Locación -->
+          <div class="dropdown">
+            <button class="dropbtn location-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              CO
+            </button>
+            <div class="dropdown-content right-align">
+              <a href="#">Colombia (CO)</a>
+              <a href="#">México (MX)</a>
+              <a href="#">United States (US)</a>
+              <a href="#">United Kingdom (UK)</a>
+            </div>
+          </div>
+
+          <span class="divider">|</span>
+          <a href="{{ url_for('view_cart') }}">Cart</a>
+          <span class="divider">|</span>
+
+          <!-- Menú MY -->
+          <div class="dropdown">
+            <button class="dropbtn">MY <span class="arrow">▾</span></button>
+            <div class="dropdown-content right-align">
+              <a href="#">Orders</a>
+              <a href="#">My Profile</a>
+            </div>
+          </div>
+
+          <span class="divider">|</span>
+
+          <!-- Menú Log In -->
+          <div class="dropdown">
+            <button class="dropbtn">Log In <span class="arrow">▾</span></button>
+            <div class="dropdown-content right-align">
+              <a href="/login">Log In</a>
+              <a href="/registro">Create Account</a>
+            </div>
+          </div>
+
+          <span class="divider">|</span>
+          <a href="#" class="nav-link">Help</a>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- Contenido de la Vista de Detalle -->
+    <main class="product-detail-container">
+      
+      <!-- Sección Superior (Dos Columnas) -->
+      <section class="product-top-section">
+        
+        <!-- Columna Izquierda: Imagen del Producto -->
+        <div class="product-gallery">
+          <div class="main-preview-box">
+            <img src="{{ url_for('static', filename='img/proofportada.jpg') }}" alt="juego">
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Panel de Compra -->
+        <div class="product-purchase-panel">
+          <p class="breadcrumb">BTS > </p>
+          <h1 class="detail-title">Proof (Collector's Edition)</h1>
+          
+          <div class="price-box">
+            <span class="current-price">USD $212.48</span>
+          </div>
+          
+          <p class="tax-info">Excl. tax ⓘ</p>
+          <p class="cashback-info">Up to USD $0.25 Weverse Shop Cash</p>
+
+          <div class="quantity-selector-box">
+            <span>Proof (Collector's Edition)</span>
+            <div class="qty-controls">
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
+            <span class="qty-price">USD $212.48</span>
+          </div>
+
+          <div class="subtotal-row">
+            <span><strong>1 selected</strong></span>
+            <div>
+              <span class="subtotal-price">USD $212.48</span>
+              <span class="subtotal-tax">Excl. tax</span>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+           <form action="{{ url_for('add_to_cart') }}" method="POST" class="action-buttons">
+    
+    <!-- CAMBIO 1: Aquí pones el nombre real del producto -->
+    <input type="hidden" name="product_name" value="Proof (Collector's Edition)">
+    
+    <!-- CAMBIO 2: Aquí pones el precio en números (sin el signo de dólar) -->
+    <input type="hidden" name="product_price" value="212.48">
+    <input type="hidden" name="product_image" value="img/proofportada.jpg">
+    
+    <button type="submit" class="btn-cart">Add to Cart</button>
+    <button type="button" class="btn-purchase">Purchase</button>
+</form>
+</form>
+          </div>
+
+          <!-- Acordeón de Pre-order -->
+          <div class="info-accordion">
+            <div class="accordion-header">
+              <span>🕒 PRE-ORDER</span>
+              <span>∧</span>
+            </div>
+            <div class="accordion-content">
+              <p><strong>This product is sold on a pre-order basis.</strong></p>
+            </div>
+          </div>
+
+          <p class="login-warning">🔒 Please log in to check shipping availability.</p>
+        </div>
+      </section>
+
+      <!-- Pestañas de Navegación -->
+      <div class="product-tabs">
+        <button class="tab-btn active">Details</button>
+        <button class="tab-btn">Notes</button>
+      </div>
+
+      <!-- Sección de Detalles (Imagen Larga Vertical y Tabla) -->
+      <section class="product-long-details">
+        
+        <!-- Imagen larga vertical -->
+        <div class="long-image-box">
+          <img src="{{ url_for('static', filename='img/eec7381d7332a1c3bd59eb3721557edb.png') }}" alt="Proof (Collector's Edition) Details">
+        </div>
+
+        <!-- Tabla de Información Técnica -->
+        <div class="specs-section">
+          <h2>Information</h2>
+          <table class="specs-table">
+            <tr><td>Product Name</td><td>Proof (Collector's Edition)</td></tr>
+            <tr><td>Label</td><td>BIGHIT MUSIC</td></tr>
+            <tr><td>Release date</td><td>2022.09.18</td></tr>
+            <tr><td>Title</td><td>Proof</td></tr>
+            <tr><td>Contents</td><td>See product details</td></tr>
+            <tr><td>Track list</td><td>To be announced</td></tr>
+            <tr><td>Manufacturer</td><td>YG PLUS</td></tr>
+            <tr><td>Country of manufacture</td><td>KOREA</td></tr>
+            <tr><td>Quality assurance standards</td><td>In accordance with relevant laws and consumer disputes criteria</td></tr>
+            <tr><td>Company Name/CEO</td><td>Weverse Company Inc. / YANG ZOOIL</td></tr>
+            <tr><td>Email</td><td>support@weverse.io</td></tr>
+          </table>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer Ordenado al Final -->
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="#">Terms and Conditions</a>
+        <a href="#">Paid Services Terms and Conditions</a>
+        <a href="#">Child and Youth Protection Policy</a>
+        <a href="#" class="footer-bold">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Cookie Settings</a>
+      </div>
+    </footer>
+
+</body>
+</html>

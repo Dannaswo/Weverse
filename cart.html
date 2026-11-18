@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Weverse Shop</title>
+    <!-- Enlazamos el archivo CSS exclusivo para el carrito -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='cart.css') }}">
+</head>
+<body>
+
+    <div class="cart-container">
+        <h1 class="cart-title">Cart</h1>
+
+        <!-- Tabs de tipo de envío -->
+        <div class="cart-tabs">
+            <div class="tab-item active">Shipping<span class="tab-count">{{ cart|length }}</span></div>
+            <div class="tab-item">PICKUP</div>
+        </div>
+
+        <!-- Alerta de Dirección de Envío -->
+        <div class="address-banner">
+            <strong>Add shipping address</strong>
+            <button class="btn-add-address">Add</button>
+        </div>
+
+        <!-- Acciones Masivas -->
+        <div class="selection-row">
+            <label class="checkbox-label">
+                <input type="checkbox" checked> All
+            </label>
+            <div>
+                <button class="btn-action-small">Delete</button>
+                <button class="btn-action-small">Remove sold out</button>
+            </div>
+        </div>
+
+        <!-- Grupo de Artículos: Weverse Global -->
+        <div class="group-card">
+            <div class="group-header">
+                <h3>Weverse Global</h3>
+                <p>Items shipping together are grouped below.</p>
+            </div>
+
+            <div class="shipping-speed">Shipped within 3 business days</div>
+
+            {% if cart %}
+                {% for item in cart %}
+                <!-- Item del Carrito -->
+                <div class="cart-item">
+                    <input type="checkbox" checked class="cart-item-checkbox">
+                    
+                    <!-- Imagen de Producto -->
+                    <img class="product-thumbnail" src="{{ url_for('static', filename=item['image']) }}" alt="{{ item['name'] }}">
+                    <div class="item-details">
+                        <p class="band-tag">BTS</p>
+                        <p class="item-title">{{ item['name'] }}</p>
+                        
+                        <div class="qty-price-box">
+                            <div class="qty-selector">
+                                <button class="qty-btn">—</button>
+                                <span class="qty-value">1</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                            <div class="item-price">
+                                <span>USD</span> <strong>${{ item['price'] }}</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botón individual de compra y remover -->
+                    <button class="btn-buy-now">Buy Now</button>
+                    <form action="{{ url_for('remove_from_cart', index=loop.index0) }}" method="POST" style="display: inline;">
+                    <button type="submit" class="btn-remove-item" title="Eliminar producto">×</button>
+                    </form>
+                     </div>
+                {% endfor %}
+            {% else %}
+                <div style="text-align: center; padding: 40px 0; color: #777;">
+                    <p>Tu carrito está vacío.</p>
+                    <a href="{{ url_for('index') }}" style="color: #00b2b2; font-weight: 600; text-decoration: underline;">Ir a ver productos</a>
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Bloque de Montos e Importe Total -->
+        {% if cart %}
+        <div class="order-summary-card">
+            <h3 class="summary-title">Order Amount</h3>
+            
+            <div class="summary-grid">
+                <div class="summary-left">
+                    <div class="summary-row-line">
+                        Subtotal <span class="label-dark">USD ${{ total }}</span> + Estimated shipping fee <strong>Address required</strong>
+                    </div>
+                    <div class="summary-row-line">
+                        — Estimated Coupon Discount <span class="discount-text">USD $0.00</span>
+                    </div>
+                </div>
+
+                <div class="summary-right">
+                    <div class="estimated-total">
+                        <p>Estimated total amount</p>
+                        <span class="total-price">USD ${{ total }}</span>
+                        <div class="excl-tax">Excl. tax</div>
+                    </div>
+                    <button class="btn-checkout">Buy {{ cart|length }} products</button>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="retention-message">
+            ℹ️ Products in your cart will be removed after 90 days.
+        </div>
+    </div>
+
+</body>
+</html>

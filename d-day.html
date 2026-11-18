@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Agust D (BTS) 'D-DAY' (Set) - Weverse Shop</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='d-day.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
 </head>
 <body>
 
@@ -58,7 +58,7 @@
           </div>
 
           <span class="divider">|</span>
-          <a href="#" class="nav-link">Cart</a>
+          <a href="{{ url_for('view_cart') }}">Cart</a>
           <span class="divider">|</span>
 
           <!-- Menú MY -->
@@ -132,8 +132,15 @@
           </div>
 
           <div class="action-buttons">
-            <button class="btn-cart">Add to Cart</button>
-            <button class="btn-purchase">Purchase</button>
+            <form action="{{ url_for('add_to_cart') }}" method="POST" class="action-buttons">
+    <!-- Campos ocultos para enviar la información del producto actual -->
+    <input type="hidden" name="product_name" value="Agust D (BTS) 'D-DAY' (Set)">
+    <input type="hidden" name="product_price" value="26.46">
+    <input type="hidden" name="product_image" value="img/dday.JPG">
+    
+    <button type="submit" class="btn-cart">Add to Cart</button>
+    <button type="button" class="btn-purchase" onclick="alert('¡Redirigiendo al pago de Weverse!')">Purchase</button>
+</form>
           </div>
 
           <!-- Acordeón de Pre-order -->

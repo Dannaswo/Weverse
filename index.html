@@ -72,9 +72,8 @@
         </div>
 
         <span class="divider">|</span>
-        <a href="#" class="nav-link">Cart</a>
-        <span class="divider">|</span>
-
+          <a href="{{ url_for('view_cart') }}">Cart</a>
+          <span class="divider">|</span>
         <!-- Menú MY -->
         <div class="dropdown">
           <button class="dropbtn">MY <span class="arrow">▼</span></button>
@@ -196,23 +195,23 @@
       <!-- Cuadrícula de Productos -->
       <div class="products-grid">
 
+  
         <!-- Producto 1 -->
-        <div class="product-card" data-category="merch">
-          <div class="product-img-box">
-            <img src="{{ url_for('static', filename='img/In the seom (portada).JPG') }}" alt="Figura">
-                          
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">BTS Island Figure V4</h3>
-            <p class="product-price"><span class="currency">USD</span> $85.14</p>
-            <p class="product-tax">Excl. tax</p>
-            <div class="product-badges">
-              <span class="badge badge-exclusive">EXCLUSIVE</span>
-              <span class="badge badge-preorder">PRE-ORDER</span>
-              <span class="badge badge-shipped">✈️ Shipped from KR</span>
-            </div>
-          </div>
-        </div>
+<div class="product-card" data-category="merch" onclick="window.location.href='/island';" style="cursor: pointer;">
+  <div class="product-img-box">
+    <img src="{{ url_for('static', filename='img/In the seom (portada).JPG') }}" alt="Figura">
+  </div>
+  <div class="product-info">
+    <h3 class="product-title">BTS Island Figure V4</h3>
+    <p class="product-price"><span class="currency">USD</span> $85.14</p>
+    <p class="product-tax">Excl. tax</p>
+    <div class="product-badges">
+      <span class="badge badge-exclusive">EXCLUSIVE</span>
+      <span class="badge badge-preorder">PRE-ORDER</span>
+      <span class="badge badge-shipped">✈️ Shipped from KR</span>
+    </div>
+  </div>
+</div>
 
         <!-- Producto 2 -->
         <div class="product-card" data-category="album">
@@ -232,10 +231,10 @@
         </div>
 
         <!-- Producto 3 -->
-        <div class="product-card" data-category="album">
-          <div class="product-img-box">
-            <img src="{{ url_for('static', filename='img/proofportada.jpg') }}" alt="Proof">
-          </div>
+         <div class="product-card" data-category="album" onclick="window.location.href='/proof';" style="cursor: pointer;">
+  <div class="product-img-box">
+    <img src="{{ url_for('static', filename='img/proofportada.jpg') }}" alt="Proof">
+  </div>
           <div class="product-info">
             <h3 class="product-title">Proof (Collector's Edition)</h3>
             <p class="product-price"><span class="currency">USD</span> $212.48</p>
